@@ -103,6 +103,10 @@ public class Ventana extends JFrame {
 		JButton btnPause = new JButton("Pause");
 		JButton btnStop = new JButton("Stop");
 
+		personaje.btnPause = btnPause;
+		personaje.btnStart = btnStart;
+		personaje.btnStop = btnStop;
+
 		// setBounds
 		btnStart.setBounds(10, 600, 75, 25);
 		btnPause.setBounds(90, 600, 75, 25);

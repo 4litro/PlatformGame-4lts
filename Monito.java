@@ -13,6 +13,7 @@ public class Monito extends JLabel implements Runnable, KeyListener {
 	private ImageIcon icon;
 	Plataforma[] plataformas;
 	JLabel background, base, meta;
+	JButton btnPause, btnStop, btnStart;
 	Sonido sonido;
 
 	public Monito(String[] spritesDerecho, String[] spritesIzquierdo, int x, int y) {
@@ -76,6 +77,11 @@ public class Monito extends JLabel implements Runnable, KeyListener {
 		sonido.playM();
 		JOptionPane.showMessageDialog(null, "LLegaste a la meta ya ganaste");
 		sonido.stopM();
+		btnStart.setEnabled(false);
+		btnPause.setEnabled(false);
+		btnStop.setEnabled(true);
+		
+		
 	}
 
 	public void lose() {
@@ -88,6 +94,9 @@ public class Monito extends JLabel implements Runnable, KeyListener {
 			JOptionPane.showMessageDialog(null, "te caiste PIPIPI");
 			System.out.println(posY);
 			sonido.stopM();
+			btnStart.setEnabled(false);
+			btnPause.setEnabled(false);
+			btnStop.setEnabled(true);
 		}
 	}
 
@@ -142,7 +151,7 @@ public class Monito extends JLabel implements Runnable, KeyListener {
 		for (int i = 0; i < aPlataformas.length; i++) {
 			if (aPlataformas[i].intersects(monito.getBounds2D())) {
 				colison = true;
-				if (!(aPlataformas[i].getBounds2D().getMaxY() + 1 == monito.getBounds2D().getMinY())) {
+				if (!(aPlataformas[i].getBounds2D().getMaxY() == monito.getBounds2D().getMinY())) {
 
 					this.posY--;
 
